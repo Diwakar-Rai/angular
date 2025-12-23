@@ -1,12 +1,25 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { Eventbinding } from './eventbinding/eventbinding';
+import { Twowaybinding } from './twowaybinding/twowaybinding';
+import { Attributdirective } from './directive/attributdirective/attributdirective';
+import { Structuraldirective } from './directive/structuraldirective/structuraldirective';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [Structuraldirective],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
 export class App {
-  protected readonly title = signal('second');
+  imagePath: string = '/assets/images/javascript.jpg';
+  alt: string = 'My Image';
+  imageVisibility: boolean = false;
+  image: string =
+    'https://images.unsplash.com/photo-1765470440250-fff94ecc23cd?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzfHx8ZW58MHx8fHx8';
+
+  inputVal: string = 'Diwakar';
+
+  display() {
+    this.imageVisibility = !this.imageVisibility;
+  }
 }

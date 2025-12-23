@@ -1,0 +1,3 @@
+@Component is a directive because it can control the template and show the template in the UI. It can also control the appearance of the component, with the help of styles.
+
+This is the reason why @Component decorator is also a directive

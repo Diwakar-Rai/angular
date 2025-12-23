@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss';
+
+.mypara {
+  @apply text-red-500 bg-amber-400 hover:text-orange-400 hover:bg-slate-400;
+}

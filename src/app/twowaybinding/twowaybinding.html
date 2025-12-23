@@ -1,0 +1,19 @@
+<p>twowaybinding works!</p>
+
+<!-- Manual way of two-way data binding -->
+<!-- 
+<input
+  type="text"
+  [value]="name"
+  class="border-3 p-2"
+  (input)="handleInput($event.target.value)"
+/>{{ name }} -->
+
+<p>
+  <!-- ngModel is a syntactic sugar for event binding and property binding combined. We need to import
+  ngModel from the library @angular/forms Example: import {FormsModule } from "@angular/forms" -->
+  <!-- @Component({ imports: [FormsModule] }) -->
+</p>
+<input type="text" [(ngModel)]="name" />{{ name }}
+
+<!-- [()] It is also called as banana in box syntax-->

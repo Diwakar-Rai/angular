@@ -1,0 +1,38 @@
+<p>Event binding in angular</p>
+
+<p>
+  In angular, all the events are executed in bubbling phase. Angular does not provide any support to
+  capture phase. If we want to use the capture phase we have to write our custom event handling
+  logic. We can do this with the help of "custom directives"
+</p>
+
+<p>
+  If we want to access, the event object for an element we can use $event, which helps use use the
+  browser's native event object. Angular makes sure that the events work properly in each and every
+  browser with the help of @angular/platform-browser
+</p>
+
+<p>{{ name }}</p>
+<button class="bg-amber-600 text-white p-3" (click)="showAlert('Saomya')">Click me</button>
+
+<section class="bg-amber-300 p-2 rounded-3xl" [hidden]="display">
+  <h1>Beautiful Place with good AQI</h1>
+  <img [src]="img" alt="image of a water falls" [height]="imgSize[1]" [width]="imgSize[0]" />
+
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, libero. Perferendis soluta
+    dolores, illo aspernatur quos cumque reiciendis repellendus! Maxime, totam in. Eum inventore
+    rerum modi nisi recusandae, nam repellat?
+  </p>
+</section>
+
+<button (click)="displaySection()" (mouseenter)="handleAlert()" class="bg-red-500 text-white px-2">
+  Click to see a nice place
+</button>
+
+<input
+  type="text"
+  class="border-2"
+  (input)="handleInput($event.target.value)"
+  [value]="inputName"
+/>{{ inputName }}

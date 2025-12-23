@@ -1,0 +1,14 @@
+<h1>Structural Directive</h1>
+
+<p
+  class="text-xl bg-yellow-200 p-4 border-slate-800 rounded border text-green-500"
+  *ngIf="isLoggedIn"
+>
+  you are logged in. WELCOME!
+</p>
+
+<p class="text-xl bg-pink-200 p-4 border-slate-800 rounded border text-red-500" *ngIf="!isLoggedIn">
+  you are loggedOut. please log in.
+</p>
+
+<button (click)="handleLogin()">Log In</button>

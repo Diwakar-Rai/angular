@@ -1,0 +1,33 @@
+<h1>Attribute Directive</h1>
+
+<!-- we should use interpolation only for embedding dynamic content in our UI. All the other things like attribute value, adding and removing of classes should not be done by interpolation -->
+
+<!-- <p class="{{ error ? 'error' : 'success' }}">Data status :{{ error ? 'Fail' : 'Success' }}</p> -->
+
+<!-- <p [ngClass]="dynamicClass">Data status :{{ error ? 'Fail' : 'Success' }}</p> -->
+<p
+  [ngClass]="{
+    'text-green-500': !error,
+    'text-red-500 ': error,
+    'text-xl font-black': true
+  }"
+>
+  Data status :{{ error ? 'Fail' : 'Success' }}
+</p>
+
+<button (click)="changeStatus('error')" class="bg-red-500 px-5 outline-0">
+  Change Data status
+</button>
+
+<section [ngStyle]="error ? { background: 'red' } : { background: 'green' }">
+  <img [src]="imageSrc" alt="Looks like its christmas" />
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, eum sint beatae ea deserunt amet
+    excepturi soluta! Minus perferendis fugiat neque similique cupiditate, cum, totam explicabo
+    vero, accusantium numquam odio.
+  </p>
+</section>
+
+<!--  ngStyle would add inline CSS to our template and it will only accept an object as a value. We can use ternary operator to choose from two different objects also-->
+
+<!-- CSSStyleDeclaration is a type for css object with properties. We can use this object to make sure that we can only add the valid css properties -->
