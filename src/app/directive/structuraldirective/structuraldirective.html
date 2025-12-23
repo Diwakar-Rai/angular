@@ -11,4 +11,41 @@
   you are loggedOut. please log in.
 </p>
 
-<button (click)="handleLogin()">Log In</button>
+<button
+  (click)="handleLogin()"
+  class="m-5"
+  [ngStyle]="{ background: 'yellow' }"
+  [ngClass]="{
+    'p-2 rounded border-0 text-white': true,
+    'bg-red-500': isLoggedIn,
+    'bg-green-500': !isLoggedIn
+  }"
+>
+  {{ isLoggedIn ? 'Log Out' : 'Log In' }}
+</button>
+
+<h1>Using if block to display some content</h1>
+
+@if(isLoggedIn){
+<p class="text-xl bg-yellow-200 p-4 border-slate-800 rounded border text-green-500">
+  you are logged in. WELCOME!
+</p>
+@if(true){
+<p>Nested</p>
+} } @else {
+<p class="text-xl bg-pink-200 p-4 border-slate-800 rounded border text-red-500">
+  you are loggedOut. please log in.
+</p>
+}
+
+<section class="bg-amber-500 p-4 rounded-xl m-4">
+  @if(typeOfUser == "user"){
+  <p>Welcome you can only see the content</p>
+  }@else if(typeOfUser == "admin"){
+  <p>Welcom you have all the privileges</p>
+  }@else if(typeOfUser == "publisher"){
+  <p>Welcom you can only make changes to the content</p>
+  }@else {
+  <p>You are not a valid user</p>
+  }
+</section>

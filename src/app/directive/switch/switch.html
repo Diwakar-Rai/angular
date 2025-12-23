@@ -1,0 +1,13 @@
+<h1>NgSwitch</h1>
+
+<section [ngSwitch]="userType">
+  <p *ngSwitchCase="'user'">You are a user</p>
+  <p *ngSwitchCase="'admin'">You are an admin</p>
+  <p *ngSwitchCase="'publisher'">You are a publisher</p>
+  <p *ngSwitchDefault>You are not a valid user</p>
+</section>
+
+@switch (userType) { @case ('user'){
+<p>You are a user</p>
+
+}}
