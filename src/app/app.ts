@@ -3,10 +3,13 @@ import { Eventbinding } from './eventbinding/eventbinding';
 import { Twowaybinding } from './twowaybinding/twowaybinding';
 import { Attributdirective } from './directive/attributdirective/attributdirective';
 import { Structuraldirective } from './directive/structuraldirective/structuraldirective';
+import { Switch } from './directive/switch/switch';
+import { Loop } from './directive/loop/loop';
+import { Products } from './products/products';
 
 @Component({
   selector: 'app-root',
-  imports: [Structuraldirective],
+  imports: [Products],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

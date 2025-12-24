@@ -1,0 +1,53 @@
+<!-- <h1>NgFor Loop</h1>
+
+<ul>
+  <li *ngFor="let ele of nameList">{{ ele }}</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>designation</th>
+      <th>salary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let emp of employeeList">
+      <td>{{ emp.id }}</td>
+      <td>{{ emp.name }}</td>
+      <td>{{ emp.designation }}</td>
+      <td>{{ emp.salary }}</td>
+    </tr>
+  </tbody>
+</table> -->
+
+<h1>for loop block</h1>
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>designation</th>
+      <th>salary</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for(emp of employeeList; track emp.id; let i = $index; let odd = $odd; let e=$even){
+    <tr
+      [ngClass]="{ 'bg-amber-200': odd, 'bg-amber-400': e, 'hover:bg-amber-700': true }"
+      (click)="handleOdd($odd)"
+    >
+      <td>{{ i }}-{{ emp.id }}</td>
+      <td>{{ emp.name }}</td>
+      <td>{{ emp.designation }}</td>
+      <td>{{ emp.salary }}</td>
+    </tr>
+    } @empty {
+    <tr>
+      No data found
+    </tr>
+    }
+  </tbody>
+</table>
