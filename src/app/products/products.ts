@@ -19,8 +19,12 @@ export class Products {
 
   category: string = '';
 
-  handleCategory(c: any) {
-    this.category = c.target.value;
-    this.displayList = this.productsList.filter((ele) => ele.category == this.category);
+  handleCategory(c: Event) {
+    let ele = c.target! as HTMLInputElement;
+    if (ele.value) {
+      this.displayList = this.displayList = this.productsList.filter(
+        (ele) => ele.category == this.category
+      );
+    }
   }
 }
