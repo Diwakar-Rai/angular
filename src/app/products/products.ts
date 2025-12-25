@@ -21,10 +21,13 @@ export class Products {
 
   handleCategory(c: Event) {
     let ele = c.target! as HTMLInputElement;
-    if (ele.value) {
-      this.displayList = this.displayList = this.productsList.filter(
-        (ele) => ele.category == this.category
-      );
-    }
+    this.category = ele.value;
+    this.displayList = this.displayList = this.productsList.filter(
+      (ele) => ele.category == this.category
+    );
+  }
+
+  handleDisplay(type: Display) {
+    this.displayType = type;
   }
 }

@@ -1,37 +1,125 @@
 <app-header></app-header>
-<section>
-  <select (change)="handleCategory($event)">
-    <option value="" hidden>Select category</option>
-    <option value="men's clothing">Men</option>
-    <option value="jewelery">Jewelery</option>
-    <option value="electronics">Electronics</option>
-    <option value="women's clothing">Women</option>
-  </select>
-</section>
-<section>
-  @switch (displayType) { @case ('table') {
-  <p>Products in the form of table</p>
-  } @case('cards'){
-  <section class="grid grid-cols-4">
-    @for(product of displayList; track product.id){
-    <div>
-      <img [src]="product.image" [alt]="product.title" />
-      <h3>{{ product.title }}</h3>
-      <p>{{ product.description }}</p>
-      <p
-        [ngClass]="{ 'text-red-500': product.price > 100, 'text-green-500': product.price <= 100 }"
+<section class="p-5 px-10">
+  <section class="pb-5 flex justify-between items-center">
+    <section class="flex gap-3">
+      <select (change)="handleCategory($event)" class="border border-slate-300 rounded p-2">
+        <option value="" hidden>Select category</option>
+        <option value="men's clothing">Men</option>
+        <option value="jewelery">Jewelery</option>
+        <option value="electronics">Electronics</option>
+        <option value="women's clothing">Women</option>
+      </select>
+      <section>
+        <input type="text" class="border border-slate-300 rounded-l p-2 outline-0" /><button
+          class="bg-pink-500 text-white rounded-r p-2 px-4 cursor-pointer font-medium outline-0"
+        >
+          Search
+        </button>
+      </section>
+    </section>
+    <section>
+      <button
+        [ngClass]="{ 'bg-pink-700': displayType == 'table' }"
+        class="rounded-l bg-pink-500 text-white font-bold text-xs p-1 px-2 hover:bg-pink-700 cursor-pointer"
+        (click)="handleDisplay('table')"
       >
-        {{ product.price }}
-      </p>
-      <p>{{ product.rating.rate }}</p>
-    </div>
-    }@empty {
-    <p>No products to display</p>
-    }
+        Table
+      </button>
+      <button
+        class="bg-pink-500 text-white font-bold text-xs p-1 px-2 hover:bg-pink-700 cursor-pointer"
+        (click)="handleDisplay('cards')"
+        [ngClass]="{ 'bg-pink-700': displayType == 'cards' }"
+      >
+        Cards
+      </button>
+      <button
+        class="rounded-r bg-pink-500 text-white font-bold text-xs p-1 px-2 hover:bg-pink-700 cursor-pointer"
+        (click)="handleDisplay('details')"
+        [ngClass]="{ 'bg-pink-700': displayType == 'details' }"
+      >
+        Details
+      </button>
+    </section>
   </section>
-  } @case('details'){
-  <p>Products in the form of details</p>
-  } @default {
-  <p>Something went wrong. Please Try again later</p>
-  } }
+  <section>
+    @switch (displayType) { @case ('table') {
+    <table class="rounded-t overflow-hidden w-full">
+      <thead class="bg-pink-500 text-white font-bold text-center">
+        <tr>
+          <th>ID</th>
+          <th>TITLE</th>
+          <th>DESCRIPTION</th>
+          <th>PRICE</th>
+          <th>RATING</th>
+          <th>COUNT</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for(product of displayList; track product.id){
+        <tr [ngClass]="{ 'bg-pink-50': $odd, 'bg-white': $even, 'border border-slate-200': true }">
+          <td>{{ product.id }}</td>
+          <td>{{ product.title.slice(0, 20) + '...' }}</td>
+          <td>{{ product.description.slice(0, 70) + '...' }}</td>
+          <td>{{ product.price }}</td>
+          <td>{{ product.rating.rate }}</td>
+          <td>{{ product.rating.count }}</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+    } @case('cards'){
+    <section class="grid grid-cols-4 gap-5">
+      @for(product of displayList; track product.id){
+      <div
+        class="border-slate-300 rounded-lg overflow-hidden border shadow-lg relative flex flex-col justify-between"
+      >
+        <img [src]="product.image" [alt]="product.title" class="w-full max-h-80 p-2" />
+        <section class="p-3">
+          <h3 class="py-1 text-slate-900 font-bold" [title]="product.title">
+            {{ product.title.slice(0, 30) + '...' }}
+          </h3>
+          <p class="text-slate-500 text-sm py-1">{{ product.description.slice(0, 100) + '...' }}</p>
+          <p
+            [ngClass]="{
+              'text-red-500': product.price > 100,
+              'text-green-500': product.price <= 100,
+              'text-2xl font-bold': true
+            }"
+          >
+            ${{ product.price }}
+          </p>
+          <p
+            class="absolute -top-1 -right-1 grid justify-center items-center bg-amber-400 text-white text-xs p-1 h-8 w-8 font-extrabold"
+          >
+            {{ product.rating.rate }}
+          </p>
+        </section>
+      </div>
+      }@empty {
+      <p>No products to display</p>
+      }
+    </section>
+    } @case('details'){
+    <section>
+      @for(product of displayList;track product.id){
+      <section class="flex gap-5 border-slate-200 border rounded shadow-md mb-3">
+        <img [src]="product.image" [alt]="product.title" class="w-1/5 p-3" />
+        <section class="py-5 pr-5">
+          <h3 class="text-black text-xl font-bold pb-2">{{ product.title }}</h3>
+          <p class="text-slate-800 py-2">{{ product.description }}</p>
+          <p class="flex items-center gap-1">
+            Price: <span class="text-green-500 font-bold text-2xl">{{ '$' + product.price }}</span>
+          </p>
+          <p class="flex gap-2 py-2 text-slate-800">
+            <span>Price: {{ product.rating.rate }}</span>
+            <span>Count: {{ product.rating.rate }}</span>
+          </p>
+        </section>
+      </section>
+      }
+    </section>
+    } @default {
+    <p>Something went wrong. Please Try again later</p>
+    } }
+  </section>
 </section>
