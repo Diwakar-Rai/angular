@@ -1,0 +1,12 @@
+<app-child
+  [branch]="'JSPIDERS BTM'"
+  [status]="true"
+  [studentList]="studentData"
+  [branchDetails]="{ name: 'BTM', location: 'Bangalore', noOfStudents: studentData.length }"
+></app-child>
+<app-child
+  [branch]="'QSPIDERS BTM'"
+  [status]="false"
+  [studentList]="unmarriedStudents"
+  [branchDetails]="branchObject"
+></app-child>

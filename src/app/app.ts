@@ -6,10 +6,12 @@ import { Structuraldirective } from './directive/structuraldirective/structurald
 import { Switch } from './directive/switch/switch';
 import { Loop } from './directive/loop/loop';
 import { Products } from './products/products';
+// import { Parent } from './refactoredproducts/parent/parent';
+import { Parent } from './communication/parent/parent';
 
 @Component({
   selector: 'app-root',
-  imports: [Products],
+  imports: [Parent],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

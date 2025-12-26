@@ -1,0 +1,18 @@
+<section class="border border-green-500 m-4">
+  <h1>{{ branch }}</h1>
+
+  <p>Marital status: {{ isMarried ? 'Maried branch' : 'Unmarried Branch' }}</p>
+
+  <h1>List of student from {{ isMarried ? 'Maried Branch' : 'Unmarried branch' }}</h1>
+  <ul>
+    @for(student of studentList; track $index){
+    <li>{{ student }}</li>
+    }
+  </ul>
+
+  <ul>
+    <li>Name: {{ branchDetails.name }}</li>
+    <li>Location: {{ branchDetails.location }}</li>
+    <li>Number of students: {{ branchDetails.noOfStudents }}</li>
+  </ul>
+</section>

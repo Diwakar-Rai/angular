@@ -1,0 +1,31 @@
+<!-- <section class="grid grid-cols-4 gap-5">
+  @for(product of displayList; track product.id){
+  <div
+    class="border-slate-300 rounded-lg overflow-hidden border shadow-lg relative flex flex-col justify-between"
+  >
+    <img [src]="product.image" [alt]="product.title" class="w-full max-h-80 p-2" />
+    <section class="p-3">
+      <h3 class="py-1 text-slate-900 font-bold" [title]="product.title">
+        {{ product.title.slice(0, 30) + '...' }}
+      </h3>
+      <p class="text-slate-500 text-sm py-1">{{ product.description.slice(0, 100) + '...' }}</p>
+      <p
+        [ngClass]="{
+          'text-red-500': product.price > 100,
+          'text-green-500': product.price <= 100,
+          'text-2xl font-bold': true
+        }"
+      >
+        ${{ product.price }}
+      </p>
+      <p
+        class="absolute -top-1 -right-1 grid justify-center items-center bg-amber-400 text-white text-xs p-1 h-8 w-8 font-extrabold"
+      >
+        {{ product.rating.rate }}
+      </p>
+    </section>
+  </div>
+  }@empty {
+  <p>No products to display</p>
+  }
+</section> -->

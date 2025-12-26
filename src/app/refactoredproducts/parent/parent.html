@@ -1,0 +1,25 @@
+<app-header></app-header>
+
+<section class="pb-5 flex justify-between items-center">
+  <section class="flex gap-3">
+    <select class="border border-slate-300 rounded p-2">
+      <option value="" hidden>Select category</option>
+      <option value="men's clothing">Men</option>
+      <option value="jewelery">Jewelery</option>
+      <option value="electronics">Electronics</option>
+      <option value="women's clothing">Women</option>
+    </select>
+    <section>
+      <input type="text" class="border border-slate-300 rounded-l p-2 outline-0" /><button
+        class="bg-pink-500 text-white rounded-r p-2 px-4 cursor-pointer font-medium outline-0"
+      >
+        Search
+      </button>
+    </section>
+  </section>
+</section>
+<section>
+  @switch (displayType) { @case ('table') { } @case('cards'){ } @case('details'){ } @default {
+  <p>Something went wrong. Please Try again later</p>
+  } }
+</section>
