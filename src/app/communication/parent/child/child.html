@@ -1,4 +1,4 @@
-<section class="border border-green-500 m-4">
+<!-- <section class="border border-green-500 m-4">
   <h1>{{ branch }}</h1>
 
   <p>Marital status: {{ isMarried ? 'Maried branch' : 'Unmarried Branch' }}</p>
@@ -15,4 +15,12 @@
     <li>Location: {{ branchDetails.location }}</li>
     <li>Number of students: {{ branchDetails.noOfStudents }}</li>
   </ul>
-</section>
+</section> -->
+
+<button class="bg-blue-500 text-white px-3 rounded p-1" (click)="handleEmission()">
+  Emit some message
+</button>
+
+<button class="bg-blue-500 text-white px-3 rounded p-1" (click)="handleHobbies()">
+  Emit hobbies array
+</button>

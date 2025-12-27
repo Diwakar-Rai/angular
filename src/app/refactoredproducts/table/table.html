@@ -1,4 +1,4 @@
-<!-- <table class="rounded-t overflow-hidden w-full">
+<table class="rounded-t overflow-hidden w-full">
   <thead class="bg-pink-500 text-white font-bold text-center">
     <tr>
       <th>ID</th>
@@ -10,7 +10,7 @@
     </tr>
   </thead>
   <tbody>
-    @for(product of displayList; track product.id){
+    @for(product of productList; track product.id){
     <tr [ngClass]="{ 'bg-pink-50': $odd, 'bg-white': $even, 'border border-slate-200': true }">
       <td>{{ product.id }}</td>
       <td>{{ product.title.slice(0, 20) + '...' }}</td>
@@ -21,4 +21,4 @@
     </tr>
     }
   </tbody>
-</table> -->
+</table>

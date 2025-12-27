@@ -1,0 +1,11 @@
+<p ref-para>temref works!</p>
+
+<button (click)="handleelement(para)">See the dom structure of para element</button>
+
+<!-- <audio src="/music.mp3" hidden ref-audio></audio> -->
+<audio src="/music.mp3" hidden #shantanu></audio>
+
+<button (click)="handleAudio(shantanu)">See the dom structure of audio</button>
+<button (click)="shantanu.play()">play</button>
+<button (click)="shantanu.pause()">pause</button>
+<button (click)="shantanu.src = '/music2.mp3'">next</button>

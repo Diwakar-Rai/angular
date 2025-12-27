@@ -8,6 +8,7 @@ import { Child } from './child/child';
   styleUrl: './parent.css',
 })
 export class Parent {
+  childHobbies: string[] = [];
   studentData: string[] = ['Harsha', 'Sudhanshu', 'Sanket'];
   unmarriedStudents: string[] = ['Saomya', 'Vishnu Priya'];
   branchObject = {
@@ -15,4 +16,13 @@ export class Parent {
     location: 'Bangalore',
     noOfStudents: this.unmarriedStudents.length,
   };
+
+  handlePublish(subscribe: string) {
+    console.log(subscribe);
+  }
+
+  storeHandlehobbies(data: string[]) {
+    console.log(data);
+    this.childHobbies = data;
+  }
 }

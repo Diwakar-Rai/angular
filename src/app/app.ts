@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, TemplateRef } from '@angular/core';
 import { Eventbinding } from './eventbinding/eventbinding';
 import { Twowaybinding } from './twowaybinding/twowaybinding';
 import { Attributdirective } from './directive/attributdirective/attributdirective';
@@ -6,12 +6,13 @@ import { Structuraldirective } from './directive/structuraldirective/structurald
 import { Switch } from './directive/switch/switch';
 import { Loop } from './directive/loop/loop';
 import { Products } from './products/products';
-// import { Parent } from './refactoredproducts/parent/parent';
+import { Parent as ProductParent } from './refactoredproducts/parent/parent';
 import { Parent } from './communication/parent/parent';
+import { Temref } from './templatereference/temref/temref';
 
 @Component({
   selector: 'app-root',
-  imports: [Parent],
+  imports: [Parent, ProductParent, Temref],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
@@ -26,5 +27,9 @@ export class App {
 
   display() {
     this.imageVisibility = !this.imageVisibility;
+  }
+
+  handleChildElements(arg: any) {
+    console.log(arg);
   }
 }

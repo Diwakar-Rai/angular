@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NgClass } from '@angular/common';
+import { ProductType } from '../../../types/product-types';
 
 @Component({
   selector: 'app-table',
@@ -7,4 +8,6 @@ import { NgClass } from '@angular/common';
   templateUrl: './table.html',
   styleUrl: './table.css',
 })
-export class Table {}
+export class Table {
+  @Input() productList: ProductType[] = [];
+}
