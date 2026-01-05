@@ -11,3 +11,33 @@ td {
   text-align: center;
   padding: 10px 0;
 }
+
+.formInput {
+  @apply border-slate-300 border w-full outline-none rounded p-2 my-2;
+}
+
+/* form.ng-invalid.ng-touched {
+  @apply border-red-500;
+} */
+form.ng-valid.ng-touched {
+  @apply border-green-500;
+}
+
+input.ng-valid.ng-touched {
+  @apply border border-green-500;
+}
+input.ng-invalid.ng-touched {
+  @apply border border-red-500;
+}
+
+input {
+  @apply border border-slate-300 rounded w-full p-2;
+}
+
+form button:disabled {
+  @apply bg-slate-300 text-black border-none cursor-not-allowed;
+}
+
+.error {
+  @apply text-xs text-red-500;
+}

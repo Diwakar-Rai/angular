@@ -9,10 +9,14 @@ import { Products } from './products/products';
 import { Parent as ProductParent } from './refactoredproducts/parent/parent';
 import { Parent } from './communication/parent/parent';
 import { Temref } from './templatereference/temref/temref';
+import { Projector } from './projector/projector';
+import { TemplateDriven } from './template-driven/template-driven';
+import { Reactiveform } from './reactive-forms/reactiveform/reactiveform';
+import { PipeComponent } from './pipe-component/pipe-component';
 
 @Component({
   selector: 'app-root',
-  imports: [Parent, ProductParent, Temref],
+  imports: [Parent, ProductParent, Temref, Projector, TemplateDriven, Reactiveform, PipeComponent],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

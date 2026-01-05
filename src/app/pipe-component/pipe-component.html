@@ -1,0 +1,39 @@
+<h1 class="text-red-500 text-4xl font-black p-5">Employee Data</h1>
+
+<table class="m-5">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Date of joining</th>
+      <th>Salary</th>
+      <th>Increment</th>
+      <th>Percent</th>
+      <th>Designation</th>
+      <th>Qualification</th>
+      <th>Bio</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    @for(data of employeeData; track data.id){
+    <tr
+      [ngClass]="{
+        'bg-amber-100': $even,
+        'bg-amber-200': $odd,
+
+      }"
+    >
+      <td>{{ data.id }}</td>
+      <td>{{ data.name | titlecase }}</td>
+      <td>{{ data.doj | date : 'dd MMMM yyyy' }}</td>
+      <td>{{ data.salary | currency : 'INR' : 'symbol' : '4.2-2' }}</td>
+      <td>{{ data.increment | currency }}</td>
+      <td>{{ data.increment / data.salary | percent }}</td>
+      <td>{{ data.designation | designation }}</td>
+      <td>{{ data.qualification | uppercase }}</td>
+      <td>{{ data.bio | reducelength }}</td>
+    </tr>
+    }
+  </tbody>
+</table>

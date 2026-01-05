@@ -1,0 +1,89 @@
+<h1 class="text-4xl text-red-500 mb-3 text-center">Reactive Form</h1>
+<section class="flex justify-center items-center">
+  <form
+    class="w-1/3 border-slate-300 border shadow p-5 rounded-md"
+    [formGroup]="form"
+    (ngSubmit)="handleSubmit()"
+  >
+    <section>
+      <label for="name">Name</label>
+      <input type="text" formControlName="name" />
+      @if(form.controls.name.errors?.['required']){
+
+      <p class="error">Name is required</p>
+      } @if(form.controls.name.getError('maxlength')){
+      <p class="error">maximum 5 characters allowed</p>
+      } @if(form.controls.name.errors?.['capital']){
+      <p>{{ form.controls.name.getError('capital').message }}</p>
+      }
+    </section>
+    <section>
+      <label for="email">Email</label>
+      <input type="email" formControlName="email" />
+      @if(form.controls.email.getError('required')){
+      <p class="error">Email is required</p>
+      }
+    </section>
+
+    <section>
+      <p>Select the Gender</p>
+      <section class="flex gap-2">
+        @for(gender of genderData; track gender.value){
+        <section class="flex gap-2">
+          <label [for]="gender.label">{{ gender.label }}</label>
+          <input type="radio" [value]="gender.value" [id]="gender.label" formControlName="gender" />
+        </section>
+
+        } @if(form.get('gender')?.getError('required')){
+        <p class="error">Gender is required</p>
+        }
+      </section>
+    </section>
+
+    <section>
+      <p>Select Your Country</p>
+      <select formControlName="country">
+        <option value="">--Select your country--</option>
+        @for(country of countryData; track country.code){
+        <option [value]="country.code">{{ country.name }}</option>
+        }
+      </select>
+    </section>
+
+    <section>
+      <p>Select the subjects</p>
+      <section class="flex gap-2">
+        @for(subject of subjectData; track subject.value){
+        <label [for]="subject.value">{{ subject.label }}</label>
+        <input
+          type="checkbox"
+          [value]="subject.value"
+          [id]="subject.value"
+          (change)="handleChange($event)"
+        />
+        }
+      </section>
+    </section>
+
+    <section>
+      <label for="pass">Password</label>
+      <input type="password" id="pass" formControlName="password" />
+    </section>
+    <section>
+      <label for="confirmpass">Confirm Password</label>
+      <input type="password" id="confirmpass" formControlName="confirmPassword" />
+    </section>
+    <section>
+      <button
+        type="submit"
+        class="bg-blue-500 p-2 rounded border-blue-500 border w-full text-white my-3"
+      >
+        Submit
+      </button>
+    </section>
+  </form>
+
+  @if(form.errors?.['passCheck'] && form.controls.confirmPassword.touched){
+  <p class="error">{{form.errors?.['passCheck'].message}}</p>
+  }
+</section>
