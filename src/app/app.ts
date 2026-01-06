@@ -13,10 +13,24 @@ import { Projector } from './projector/projector';
 import { TemplateDriven } from './template-driven/template-driven';
 import { Reactiveform } from './reactive-forms/reactiveform/reactiveform';
 import { PipeComponent } from './pipe-component/pipe-component';
+import { Signals } from './signal/signals/signals';
+import { LifeCycle } from './life-cycle/life-cycle';
+import { ParentLifeCycle } from './parent-life-cycle/parent-life-cycle';
 
 @Component({
   selector: 'app-root',
-  imports: [Parent, ProductParent, Temref, Projector, TemplateDriven, Reactiveform, PipeComponent],
+  imports: [
+    Parent,
+    ProductParent,
+    Temref,
+    Projector,
+    TemplateDriven,
+    Reactiveform,
+    PipeComponent,
+    Signals,
+    LifeCycle,
+    ParentLifeCycle,
+  ],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
@@ -35,5 +49,9 @@ export class App {
 
   handleChildElements(arg: any) {
     console.log(arg);
+  }
+
+  handleRandom() {
+    return Math.random();
   }
 }

@@ -1,0 +1,14 @@
+<section class="border-5 border-green-500 p-4">
+  <h1 class="text-2xl text-red-500" #header>Child</h1>
+
+  <h1 class="text-red-500 text-2xl">Count value from parent: {{ count }}</h1>
+
+  <h1 class="text-red-500 text-2xl">Name data from the component: {{ name }}</h1>
+  <button (click)="handleNameChange()" class="btn">Change Name</button>
+
+  <button class="btn" (click)="startTimer()">Start timer</button>
+
+  <section class="border border-amber-600 p-2">
+    <ng-content></ng-content>
+  </section>
+</section>

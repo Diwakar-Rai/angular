@@ -32,7 +32,7 @@
       <td>{{ data.increment / data.salary | percent }}</td>
       <td>{{ data.designation | designation }}</td>
       <td>{{ data.qualification | uppercase }}</td>
-      <td>{{ data.bio | reducelength }}</td>
+      <td>{{ data.bio | reducelength : len }}</td>
     </tr>
     }
   </tbody>

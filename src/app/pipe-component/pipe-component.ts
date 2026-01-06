@@ -26,6 +26,7 @@ import { DesignationPipe } from '../Pipe/designation-pipe';
   styleUrl: './pipe-component.css',
 })
 export class PipeComponent {
+  len: number = 10;
   employeeData = [
     {
       id: 1,
